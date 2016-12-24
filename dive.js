@@ -2,10 +2,8 @@ function Dive(selector, params) {
 	if (!params) params = {};
 	this.params = params;
 	this.selector = selector;
-	this.obj = document.querySelector(selector);
-	this.computedStyle = window.getComputedStyle(this.obj);
-	this.wrapperClass = params.wrapperClass || 'block';
 	this.addWrapper();
+	this.wrapperClass = params.wrapperClass || 'block';
 	this.body = document.querySelector('body');
 	this.maxWidth = params.maxWidth || 400;
 	this.maxHeight = params.maxHeight || 400;
@@ -16,7 +14,6 @@ function Dive(selector, params) {
 	this.initOpacity = parseFloat(this.computedStyle.opacity);
 	this.startAfter = params.startAfter || 0;
 	// block which will remain in the place while "obj" will move
-	// this.obj.parentElement.setAttribute('style', 'height:' + this.computedStyle.height + ';width:' + this.computedStyle.width);
 	this.currentBodyTop = this.body.getBoundingClientRect().top;
 	this.opacityChangeTop = params.opacityChangeTop || -450;
 	this.maxDescend = params.maxDescend || 600;
@@ -34,6 +31,7 @@ function Dive(selector, params) {
 	this.opacityIncrement = params.opacityIncrement || 0.02;
 	this.functionName = params.functionName || 'cos';
 	window.addEventListener('scroll', this.f);
+	this.f();
 }
 /**
  * moves container
@@ -128,8 +126,8 @@ Dive.prototype.getOpacity = function (vPosition) {
 	var firstPercent = (firstOpacityMax - this.startAfter) / 100;
 	var newOpacity = this.initOpacity;
 	// first part
-	if (vPosition > firstOpacityMin) {
-		newOpacity = (this.initOpacity + this.initOpacity * (vPosition / firstPercent) / 100).toFixed(2);
+	if (vPosition > this.startAfter) {
+		newOpacity = parseFloat(this.initOpacity + this.initOpacity * (vPosition / firstPercent) / 100).toFixed(2);
 	}
 	// mid part
 	if (vPosition >= firstOpacityMax && vPosition <= firstOpacityMin) {
@@ -160,7 +158,15 @@ Dive.prototype.checkOpacity = function () {
  * setting styles
  */
 Dive.prototype.setStyles = function () {
+	if (!this.backgroundImage) {
+		this.backgroundImage = window.getComputedStyle(this.obj)['background-image'];
+	}
+	// if (!this.initOpacity) {
+	// 	this.initOpacity = window.getComputedStyle(this.obj)['opacity'];
+	// }
 	this.styles = [
+		{margin: 0},
+		{padding:0},
 		{width: parseInt(this.newWidth) + 'px'},
 		{height: parseInt(this.newHeight) + 'px'},
 		{opacity: this.getOpacity(this.currentBodyTop)},
@@ -168,7 +174,7 @@ Dive.prototype.setStyles = function () {
 		{position: this.position},
 		{'z-index': this.zIndex},
 		{left: this.hPosition - (this.newWidth - this.savedWidth) / 2 + 'px'},
-		{'background-image': this.computedStyle['background-image']}
+		{'background-image': this.backgroundImage}
 	];
 };
 /**
@@ -219,10 +225,12 @@ Dive.prototype.setTanModifier = function (modifier) {
 /**
  * wrapper for element to keep other parts of html intact
  */
-Dive.prototype.addWrapper = function(){
+Dive.prototype.addWrapper = function () {
 	var wrap = document.createElement('div');
+	var source = document.querySelector(this.selector);
+	this.computedStyle = window.getComputedStyle(source);
 	wrap.setAttribute('class', this.wrapperClass);
-	wrap.appendChild(this.obj.cloneNode(true));
+	wrap.appendChild(source.cloneNode(true));
 	var styles = [
 		{width: this.computedStyle.width},
 		{height: this.computedStyle.height},
@@ -230,11 +238,15 @@ Dive.prototype.addWrapper = function(){
 		{padding: this.computedStyle.padding},
 		{margin: this.computedStyle.margin},
 	];
-	styles = styles.map(function(elem){
+	styles = styles.map(function (elem) {
 		return Object.keys(elem)[0] + ':' + Object.values(elem)[0]
 	});
 	wrap.setAttribute('style', styles.join(';'));
-	this.obj.parentNode.insertBefore(wrap, this.obj);
-	this.obj.remove();
+
+	source.parentNode.insertBefore(wrap, source);
+	source.remove();
 	this.obj = document.querySelector(this.selector);
+	this.computedStyle = window.getComputedStyle(this.obj);
+	this.setStyles();
+	this.applyStyles();
 };

@@ -1,8 +1,9 @@
 ## Vertical floating plugin
 
-[demo](scroll.html)
+[demo](https://alex-volkov.github.io/container-vertical-float/scroll.html)
 
 This plugin allows container to scroll through the page with different effects (change of opacity, size)
+![demo screenshot](images/demo.png)
 
 Movement is affected by Math function (sin, cos, tan) `functionName` parameter
 

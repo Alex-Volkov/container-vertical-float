@@ -32,13 +32,13 @@
     }
 
     #img1 {
-        background-image: url(images/img1.png);
+        /*background-image: url(images/img1.png);*/
         float: left;
         margin: 1rem 1rem 1rem 0;
     }
 
     #img2 {
-        background-image: url(images/img2.png);
+        /*background-image: url(images/img2.png);*/
         float: right;
         width: 200px;
         height: 200px;
@@ -49,12 +49,16 @@
     #img3 {
         width: 150px;
         height: 150px;
-        background-image: url(images/img4.png);
+        /*background-image: url(images/img4.png);*/
         float: left;
         margin: 1rem 1rem 1rem 0;
     }
 
     .container {
+        padding: 1rem;
+        line-height: 1.5rem;
+        background: #3a96ea;
+        color: #f4f4f4;
         font-family: sans-serif;
         text-align: justify;
         width: 1280px;
@@ -75,13 +79,7 @@
     }
 
     .image-loaded {
-        animation: imageAppear 2s;
-    }
-
-    .debug {
-        position: fixed;
-        right: 0;
-        border: 2px solid;
+        animation: imageAppear .5s;
     }
 
     @keyframes imageAppear {
@@ -121,26 +119,33 @@
     maxime mollitia nihil nisi officia quam quasi quisquam saepe sapiente sed, sequi totam vitae voluptas! Accusantium
     alias aspernatur autem dolore harum hic impedit iste laudantium odio officia optio placeat quam recusandae,
     <p>
-    repellendus reprehenderit velit voluptatibus! Ab accusamus adipisci amet assumenda autem delectus deleniti dicta
-    dignissimos earum est et eum facere facilis illo illum impedit iure iusto, libero molestias nisi, officia officiis
-    optio placeat possimus praesentium quas quisquam saepe sed sint tenetur! Animi debitis est natus, numquam quam
-    quibusdam vero voluptatem. Accusantium autem consequatur delectus deleniti dolore eligendi eum expedita explicabo
-    facere harum ipsum, nobis perspiciatis qui repudiandae rerum suscipit ullam vel vero voluptate voluptatem! Animi
-    eius enim incidunt ipsa qui sed similique sunt veniam voluptatum. Adipisci culpa dicta dolores dolorum eveniet
-    excepturi fugit in inventore laboriosam minima nemo, nesciunt nisi obcaecati quam quos recusandae tempora tenetur
-    unde vel, voluptates. Ad aspernatur assumenda autem, beatae commodi consequuntur corporis dolorum eligendi eum
-    exercitationem explicabo hic id iste iusto maiores molestiae molestias neque, pariatur quas qui quis, quo
-    repudiandae sint tenetur unde vitae voluptas. Accusamus accusantium, adipisci aperiam assumenda beatae culpa dolorem
-    esse est expedita fuga fugit harum illo in itaque labore molestiae mollitia numquam obcaecati odit officiis</p>
+        repellendus reprehenderit velit voluptatibus! Ab accusamus adipisci amet assumenda autem delectus deleniti dicta
+        dignissimos earum est et eum facere facilis illo illum impedit iure iusto, libero molestias nisi, officia
+        officiis
+        optio placeat possimus praesentium quas quisquam saepe sed sint tenetur! Animi debitis est natus, numquam quam
+        quibusdam vero voluptatem. Accusantium autem consequatur delectus deleniti dolore eligendi eum expedita
+        explicabo
+        facere harum ipsum, nobis perspiciatis qui repudiandae rerum suscipit ullam vel vero voluptate voluptatem! Animi
+        eius enim incidunt ipsa qui sed similique sunt veniam voluptatum. Adipisci culpa dicta dolores dolorum eveniet
+        excepturi fugit in inventore laboriosam minima nemo, nesciunt nisi obcaecati quam quos recusandae tempora
+        tenetur
+        unde vel, voluptates. Ad aspernatur assumenda autem, beatae commodi consequuntur corporis dolorum eligendi eum
+        exercitationem explicabo hic id iste iusto maiores molestiae molestias neque, pariatur quas qui quis, quo
+        repudiandae sint tenetur unde vitae voluptas. Accusamus accusantium, adipisci aperiam assumenda beatae culpa
+        dolorem
+        esse est expedita fuga fugit harum illo in itaque labore molestiae mollitia numquam obcaecati odit officiis</p>
 
     <p>perferendis placeat possimus qui recusandae repellendus saepe unde voluptas. Aliquid consequatur pariatur ut. A
-    adipisci aperiam asperiores deserunt doloremque fugit harum ipsa itaque, iusto magni modi nobis obcaecati porro
-    quidem quis quod repellendus soluta veniam voluptatem voluptatum! Ad alias autem eum inventore ipsam itaque libero
-    maxime possimus, ut voluptatibus. Ad earum est excepturi id inventore nobis pariatur saepe. Accusamus aperiam
-    aspernatur cumque delectus deserunt dolorem hic iure, laboriosam laudantium molestias mollitia obcaecati odit omnis,
-    placeat quasi quod sunt, suscipit tenetur voluptas voluptates!
+        adipisci aperiam asperiores deserunt doloremque fugit harum ipsa itaque, iusto magni modi nobis obcaecati porro
+        quidem quis quod repellendus soluta veniam voluptatem voluptatum! Ad alias autem eum inventore ipsam itaque
+        libero
+        maxime possimus, ut voluptatibus. Ad earum est excepturi id inventore nobis pariatur saepe. Accusamus aperiam
+        aspernatur cumque delectus deserunt dolorem hic iure, laboriosam laudantium molestias mollitia obcaecati odit
+        omnis,
+        placeat quasi quod sunt, suscipit tenetur voluptas voluptates!
 
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, blanditiis deleniti dolore ducimus ea error iste</p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, blanditiis deleniti dolore ducimus ea error
+        iste</p>
     maiores neque officia sint sunt suscipit velit vero. Ab asperiores atque consequuntur culpa cupiditate hic illum
     iste, iusto labore maiores modi necessitatibus nihil nostrum praesentium, provident reprehenderit sapiente sed sint
     tempore ut vel velit veritatis. Ad alias architecto asperiores atque cum doloremque doloribus eum ipsa, ipsam labore
@@ -264,42 +269,67 @@
 </div>
 
 <script>
-	//	var pre = new Image();
-	//	pre.src = 'scroll.png';
-	//	pre.addEventListener('load', () => {
-	//		console.log('loaded');
-	//		document.querySelector('#img').setAttribute('style', `background-image: url(${pre.src})`);
-	//		document.querySelector('#img').setAttribute('class', `image-loaded`);
-	//	})
+	function loader(pair) {
+
+		var pre = new Image();
+		pre.src = pair.image;
+		pre.addEventListener('load', () => {
+			var elem = document.querySelector(pair.selector);
+			elem.setAttribute('style', 'background-image: url(' + pair.image + ')');
+			elem.setAttribute('class', 'image-loaded');
+			console.log('loaded');
+			setTimeout(function () {
+				elem.removeAttribute('class');
+				document.dispatchEvent(new CustomEvent('imageLoaded', {detail: pair}))
+			}, 600)
+		})
+	}
+	var pairs = [
+		{selector: '#img1', image: 'images/img1.png'},
+		{selector: '#img2', image: 'images/img2.png'},
+		{selector: '#img3', image: 'images/img4.png'},
+	];
+	pairs.forEach(function (elem) {
+		loader(elem);
+	});
+
 </script>
 <script src="dive.js"></script>
 <script>
+	document.addEventListener('imageLoaded', function (evt) {
+		switch (evt.detail.selector) {
+			case '#img1':
 
-	var dive1 = new Dive('#img1', {
-		opacityChangeTop: -350,
-		maxDescend: 400,
-		functionName: 'sin',
-		functionModifier: 9
+				var dive1 = new Dive('#img1', {
+					opacityChangeTop: -350,
+					maxDescend: 400,
+					functionName: 'sin',
+					functionModifier: 9
 
-	});
-
-
-	var dive2 = new Dive('#img2', {
-		opacityChangeTop: -550,
-		maxWidth: 500,
-		maxHeight: 500,
-		startAfter: 300,
-		maxOpacity: .9,
-		functionName: 'sin',
-		functionModifier: 6
-	});
-	var dive3 = new Dive('#img3', {
-		startAfter: 800,
-		maxWidth: 300,
-		maxHeight: 300,
-		opacityChangeTop: -800,
-		functionName: 'sin',
-		functionModifier: 9
+				});
+				break;
+			case '#img2':
+				var dive2 = new Dive('#img2', {
+					opacityChangeTop: -550,
+					maxWidth: 500,
+					maxHeight: 500,
+					startAfter: 500,
+					maxOpacity: .9,
+					functionName: 'sin',
+					functionModifier: 6
+				});
+				break;
+			case '#img3':
+				var dive3 = new Dive('#img3', {
+					startAfter: 1000,
+					maxWidth: 300,
+					maxHeight: 300,
+					opacityChangeTop: -800,
+					functionName: 'sin',
+					functionModifier: 9
+				});
+				break;
+		}
 	});
 
 
